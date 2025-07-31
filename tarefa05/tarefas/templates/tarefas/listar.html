@@ -1,0 +1,14 @@
+<h1>Lista de Tarefas</h1>
+
+<ul>
+    {% for tarefa in tarefas %}
+        <li>
+            {{ tarefa.nome }} -
+            {% if tarefa.status %} Concluída {% else %} Em andamento {% endif %}
+            - Prazo: {{ tarefa.prazo }}
+            {% if tarefa.prazo < hoje %}
+                <strong style="color:red;">(Atrasada)</strong>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

@@ -1,6 +1,7 @@
+
 from django.urls import path
-from .views import blog_view
+from . import views
 
 urlpatterns = [
-    path('', blog_view, name='blog'),
+    path('', views.blog, name="blog"),
 ]

@@ -1,9 +1,14 @@
-from django.shortcuts import render
-from .models import Postagem
+from django.shortcuts import render, get_object_or_404
+from .models import Post, Blog
 
-def blog(request):
-    postagens = Postagem.objects.all()
+def index(request):
     context = {
-        'postagens' : postagens
+        "posts": Post.objects.all(),
+        "blog": Blog.objects.first(),
     }
-    return render(request, 'blog/postagens.html', context)
+    return render(request, "blog/index.html", context)
+
+
+def detalhe_post(request, id):
+    post = get_object_or_404(Post, id=id)
+    return render(request, 'blog/post.html', {'post': post})

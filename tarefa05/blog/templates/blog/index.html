@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% block title %}Lista de Posts{% endblock %}
+
+
+{% block content %}
+    {% for post in posts %}
+        <article>
+            <h2><a href="{% url 'detalhe_post' post.id %}">{{ post.titulo }}</a></h2>
+            <p><em>{{ post.data }}</em></p>
+        </article>
+        <hr>
+    {% empty %}
+        <p>Nenhuma postagem disponível.</p>
+    {% endfor %}
+{% endblock %}

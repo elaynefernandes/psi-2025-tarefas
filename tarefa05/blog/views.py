@@ -11,4 +11,5 @@ def index(request):
 
 def detalhe_post(request, id):
     post = get_object_or_404(Post, id=id)
-    return render(request, 'blog/post.html', {'post': post})
+    blog = Blog.objects.first()
+    return render(request, 'blog/post.html', {'post': post, 'blog': blog})

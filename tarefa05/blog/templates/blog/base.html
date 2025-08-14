@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Meu Blog{% endblock %}</title>
+    <title>{{ blog.titulo }} - {% block title %}{% endblock title %}</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
 <body>
     <header>
@@ -19,7 +19,7 @@
 
     <footer>
         <hr>
-        <p>{{blog.desenvolvedor}}</p>
+        <p>Desenvolvido por {{blog.desenvolvedor}}</p>
     </footer>
 </body>
 </html>
